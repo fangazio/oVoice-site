@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0c0e12">
+  <title>oVoice — AI 语音工作站</title>
+  <meta name="description" content="oVoice 是 Windows 本地 AI 语音工作站，支持声音设计、可控克隆、极致克隆与批量合成。支持本地 VoxCPM 模型与 OpenAI 兼容云端 API。下载 V1.0.3。">
+  <meta property="og:title" content="oVoice — AI 语音工作站">
+  <meta property="og:description" content="声音设计、可控克隆、极致克隆与语音合成。支持本地离线模型与云端 API 双引擎。">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="zh_CN">
+  <link rel="icon" href="assets/icon.png" type="image/png">
+  <link rel="stylesheet" href="assets/style.css?v=20261127b">
+  <script src="config.js" defer></script>
+  <script src="assets/app.js?v=20261127b" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳转到主要内容</a>
+  <header class="header">
+    <div class="container nav">
+      <a class="brand" href="index.html" aria-label="oVoice 首页">
+        <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>oVoice
+      </a>
+      <nav id="navigation" aria-label="主导航">
+        <a href="#engines">功能</a>
+        <a href="#workflow">特性</a>
+        <a href="guide.html">使用说明</a>
+        <a class="nav-download" href="#download">下载</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero container" aria-labelledby="product-title">
+      <div class="hero-copy">
+        <div class="hero-badge">
+          <span class="hero-badge-dot" aria-hidden="true"></span>
+          <span>V1.0.3 · Windows x64 · 本地与云端双引擎</span>
+        </div>
+        <h1 id="product-title">AI 语音工作站</h1>
+        <p class="hero-description">声音设计、可控克隆与极致克隆。<br>本地离线推理数据不出本机，亦可按需切换 OpenAI 兼容云端 API。</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#download">
+            下载 Windows 版
+            <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 3v10m-4-4 4 4 4-4M3 14v3h14v-3"/></svg>
+          </a>
+          <a class="button ghost" href="guide.html">查看安装与激活说明</a>
+        </div>
+        <p class="hero-subnote">V1.x 单机永久离线激活 · 安装包 1.49 MB（不含运行时与模型权重）</p>
+      </div>
+
+      <figure class="studio-window" aria-labelledby="preview-caption">
+        <figcaption class="studio-title" id="preview-caption">
+          <span class="studio-chrome">
+            <span class="studio-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+            <span>oVoice · 本地创作 · 界面示意</span>
+          </span>
+          <span class="studio-status-group">
+            <span class="mini-vu" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
+            <span class="studio-status-chip">VoxCPM2 · 48 kHz</span>
+          </span>
+        </figcaption>
+        <div class="studio-body">
+          <aside class="mock-sidebar" aria-hidden="true">
+            <span class="sidebar-selected">声音创作</span>
+            <span>音色库</span>
+            <span>批量任务</span>
+            <span>历史记录</span>
+            <span>模型管理</span>
+            <span class="sidebar-bottom">设置</span>
+          </aside>
+          <div class="studio-main">
+            <div class="mock-heading">
+              <h2>声音创作</h2>
+              <span class="mock-model-pill">openbmb/VoxCPM2</span>
+            </div>
+            <div class="mode-tabs" role="tablist" aria-label="本地创作模式示意">
+              <button type="button" role="tab" aria-selected="true" aria-controls="mode-panel" id="mode-design" data-mode="design">声音设计</button>
+              <button type="button" role="tab" aria-selected="false" aria-controls="mode-panel" id="mode-clone" data-mode="clone" tabindex="-1">可控克隆</button>
+              <button type="button" role="tab" aria-selected="false" aria-controls="mode-panel" id="mode-ultimate" data-mode="ultimate" tabindex="-1">极致克隆</button>
+            </div>
+            <div class="preview-content" id="mode-panel" role="tabpanel" aria-labelledby="mode-design" tabindex="0">
+              <div class="mock-editor">
+                <div class="panel-kicker">
+                  <h3 id="editor-label">声音描述</h3>
+                  <span class="mode-tag" id="mode-tag">纯文本驱动 · 无需参考音</span>
+                </div>
+                <p id="editor-text">温暖、自然的女声，语速舒缓，
+像在安静的午后，讲述一个故事。</p>
+                <div class="editor-meta" id="editor-meta">
+                  <span>模式：声音设计</span>
+                  <span>提示：(描述)文本</span>
+                  <span>输出：48 kHz WAV</span>
+                </div>
+              </div>
+              <div class="wave-card">
+                <div class="panel-kicker">
+                  <h3>生成波形示意</h3>
+                  <div class="wave-controls">
+                    <span class="mode-tag">PCM 16-bit</span>
+                    <button type="button" class="wave-toggle" id="wave-toggle" aria-pressed="true" aria-label="暂停或继续声波动效示意">
+                      <span class="wave-toggle-dot" aria-hidden="true"></span>
+                      <span id="wave-toggle-label">动态示意</span>
+                    </button>
+                  </div>
+                </div>
+                <div class="wave-stage" id="wave-stage">
+                  <svg id="hero-wave" class="wave-svg" viewBox="0 0 520 112" preserveAspectRatio="none" aria-hidden="true"></svg>
+                  <div class="wave-playhead" id="wave-playhead" aria-hidden="true"></div>
+                </div>
+                <div class="wave-ruler" aria-hidden="true">
+                  <span id="wave-current">00:00</span>
+                  <span>波形示意 · 悬停可预览位置</span>
+                  <span id="wave-duration">00:12</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </figure>
+    </section>
+
+    <section class="section container" id="engines" aria-labelledby="engines-title">
+      <div class="section-header">
+        <div>
+          <p class="section-eyebrow">DUAL ENGINE ARCHITECTURE</p>
+          <h2 id="engines-title">本地与云端</h2>
+        </div>
+        <p class="section-lead">在「设置 → AI Provider」自由切换。追求完全离线与声音克隆选本地引擎；无独立显卡或轻量合成可选云端 API。</p>
+      </div>
+      <div class="engine-grid">
+        <article class="engine-card local-engine">
+          <div class="engine-top">
+            <h3>本地模型</h3>
+            <span class="engine-pill">离线全功能</span>
+          </div>
+          <p>基于 VoxCPM2 / 1.5 / 0.5B，支持声音设计、可控克隆与极致克隆。<br>模型准备完成后，可完全离线生成，音频与素材全部留在本地。</p>
+          <ul class="engine-points">
+            <li>支持声音设计、参考音频克隆及 SenseVoice 辅助转写</li>
+            <li>分阶段资源调度与按需加载，任务队列清空自动释放显存</li>
+            <li>音色库、批量长文本队列与历史记录本地持久化管理</li>
+          </ul>
+          <p class="engine-detail">需安装本地推理环境与模型，运行速度与可用功能取决于本机硬件及所选模型。</p>
+        </article>
+        <article class="engine-card api-engine">
+          <div class="engine-top">
+            <h3>云端 API</h3>
+            <span class="engine-pill">轻量零权重</span>
+          </div>
+          <p>接入 OpenAI 兼容的语音合成服务（如硅基流动等）。<br>无需下载本地语音模型或依赖本机 GPU 推理。</p>
+          <ul class="engine-points">
+            <li>填写 API 地址、Key、模型与音色即可直接合成语音</li>
+            <li>无需安装数 GB 模型权重，低配办公本亦可流畅使用</li>
+            <li>与本地模式共用同一套创作工作台、历史记录与导出流程</li>
+          </ul>
+          <p class="engine-detail">需基础运行环境、网络连接和服务账号，费用由服务商另计；当前应用 API 模式不支持克隆或自动转写。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section container" id="workflow" aria-labelledby="workflow-title">
+      <div class="section-header">
+        <div>
+          <p class="section-eyebrow">BUILT FOR PRODUCTION · V1.0.3</p>
+          <h2 id="workflow-title">面向真实创作的桌面工程细节</h2>
+        </div>
+        <p class="section-lead">不只封装推理，更聚焦加载耗时、显存礼让、素材管理与本机数据安全。</p>
+      </div>
+      <div class="bento-grid">
+        <article class="bento-card">
+          <span class="bento-index">01 · V1.0.3 加速</span>
+          <h3>冷加载与连续合成大幅提速</h3>
+          <p>采用元骨架加载跳过冗余参数初始化，融合底层归一化算子并优化自回归推理循环；相同参考音频在连续与批量克隆中自动复用 CPU 特征缓存，降低峰值显存且不牺牲音质。</p>
+        </article>
+        <article class="bento-card">
+          <span class="bento-index">02 · 显存礼让</span>
+          <h3>分阶段资源调度与自动释放</h3>
+          <p>下载和选择模型绝不预占显存。支持「桌面流畅优先」与「生成速度优先」两种策略，默认在队列完成后立即卸载模型，有任务执行时安全锁定防误释。</p>
+        </article>
+        <article class="bento-card">
+          <span class="bento-index">03 · 资产工作流</span>
+          <h3>音色库、批量队列与原生导出</h3>
+          <p>音色库保留完整参考音频并自动生成最长 5 秒独立试听；批量任务支持按空行/行/句切分长文、失败重试与 ZIP 打包；历史记录支持多选删除与系统弹窗另存。</p>
+        </article>
+        <article class="bento-card">
+          <span class="bento-index">04 · 本地边界</span>
+          <h3>本机回环通信与离线永久授权</h3>
+          <p>后端仅监听 127.0.0.1 随机端口并校验每次启动生成的会话令牌。V1.x 离线激活与日常验签均不联网，无需注册账号，所有录音与生成结果完全保存在本地目录。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section container" aria-labelledby="steps-title">
+      <div class="section-header">
+        <div>
+          <p class="section-eyebrow">GETTING STARTED</p>
+          <h2 id="steps-title">四步开始使用</h2>
+        </div>
+        <p class="section-lead">应用本体、推理运行时与模型权重分层交付，升级应用无需重复下载模型。</p>
+      </div>
+      <div class="steps-grid">
+        <article class="step-card">
+          <div class="step-num">STEP 01</div>
+          <h3>安装桌面应用</h3>
+          <p>下载并运行 Windows 安装包，数秒内完成桌面端与本地服务部署。</p>
+        </article>
+        <article class="step-card">
+          <div class="step-num">STEP 02</div>
+          <h3>本机离线激活</h3>
+          <p>复制首次启动显示的机器码联系发行者，粘贴 V1.x 永久激活码解锁。</p>
+        </article>
+        <article class="step-card">
+          <div class="step-num">STEP 03</div>
+          <h3>配置引擎环境</h3>
+          <p>按引导检测/安装本地推理运行时，或在设置中直接填写云端 API 配置。</p>
+        </article>
+        <article class="step-card">
+          <div class="step-num">STEP 04</div>
+          <h3>选择模型创作</h3>
+          <p>在模型管理下载或导入本地模型，即可进行设计、克隆与批量导出。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="download-section container" id="download" aria-labelledby="download-title">
+      <div class="download-shell">
+        <div class="download-top">
+          <div>
+            <p class="section-eyebrow">WINDOWS INSTALLER</p>
+            <h2 id="download-title">下载 oVoice</h2>
+            <p class="download-meta">V1.0.3 <span>·</span> Windows 10/11 x64 <span>·</span> 1.49 MB</p>
+          </div>
+          <a class="button primary" id="installer-download" href="downloads/oVoice_1.0.3_x64-setup.exe" download>
+            下载 Windows 安装包
+            <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 3v10m-4-4 4 4 4-4M3 14v3h14v-3"/></svg>
+          </a>
+        </div>
+
+        <div class="checksum-bar">
+          <span class="checksum-code"><strong>SHA-256</strong><span id="sha256-value">481a56c65d45d709040b4327fc7c9d31e5323b651985d63315c6907903143358</span></span>
+          <button type="button" class="copy-hash-btn" id="copy-sha256">复制哈希</button>
+        </div>
+
+        <div class="download-details">
+          <p>V1.x 单机永久授权，需购买并激活。安装包不含本地推理运行时与模型权重。</p>
+          <div class="download-links">
+            <a class="contact-link" href="mailto:fangazio@hotmail.com">咨询授权</a>
+            <a href="guide.html">安装与激活说明</a>
+            <a href="downloads/SHA256SUMS.txt" target="_blank" rel="noopener">SHA-256 校验文件 <span aria-hidden="true">↗</span></a>
+            <a href="downloads/release.json" target="_blank" rel="noopener">版本元数据 <span aria-hidden="true">↗</span></a>
+          </div>
+          <p id="contact-help">fangazio@hotmail.com</p>
+          <p class="download-feedback" id="download-feedback" role="status" aria-live="polite"></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer container">
+    <span>© <span id="copyright-year">2026</span> oVoice · 基于 OpenBMB/VoxCPM 构建</span>
+    <nav aria-label="页脚导航">
+      <a href="guide.html">使用说明</a>
+      <a href="privacy.html">隐私说明</a>
+      <a href="https://github.com/OpenBMB/VoxCPM" target="_blank" rel="noopener">VoxCPM <span aria-hidden="true">↗</span></a>
+      <a id="icp-link" hidden rel="noopener" target="_blank" href="https://beian.miit.gov.cn/"></a>
+    </nav>
+  </footer>
+</body>
+</html>

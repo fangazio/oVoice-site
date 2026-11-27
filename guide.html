@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#0c0e12">
+  <title>使用说明 — oVoice</title>
+  <meta name="description" content="oVoice V1.0.3 安装、离线激活、运行时准备与模型使用说明。">
+  <link rel="icon" href="assets/icon.png" type="image/png">
+  <link rel="stylesheet" href="assets/style.css?v=20261127b">
+</head>
+<body>
+  <header class="header">
+    <div class="container nav">
+      <a class="brand" href="index.html" aria-label="oVoice 首页">
+        <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>oVoice
+      </a>
+      <nav id="navigation" aria-label="主导航">
+        <a href="index.html#engines">功能</a>
+        <a href="guide.html" aria-current="page">使用说明</a>
+        <a class="nav-download" href="index.html#download">下载</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="document">
+    <a class="back-link" href="index.html">← 返回 oVoice 官网</a>
+    <h1>使用说明</h1>
+    <p>oVoice 是支持本地模型与云端 API 双引擎的 Windows x64 AI 语音工作站。官网提供应用安装器；本地模式需另行准备推理运行时和模型，API 模式无需本地语音模型。</p>
+    <div class="doc-note">
+      <p><strong>版本与授权提示：</strong>当前发布版本为 V1.0.3。安装包不包含模型，也不代表你已购买授权。请在下载或购买前了解配置要求和离线激活方式。</p>
+    </div>
+
+    <h2>安装与激活</h2>
+    <ol>
+      <li>从官网<a href="index.html#download">下载 Windows 安装包</a>，运行安装程序。</li>
+      <li>首次打开显示激活界面。复制 <code>OVMC1-…</code> 机器码，通过购买或获取产品的官方渠道联系发行者。</li>
+      <li>收到绑定本机的 <code>OV1.…</code> 激活码后，完整粘贴并点击“激活并进入应用”。</li>
+      <li>授权为单机永久使用，覆盖 V1.x。更换主板需人工补发；请保存激活码。激活与后续授权验证均不需要联网。</li>
+    </ol>
+
+    <h2>选择本地或 API 引擎</h2>
+    <p>在“设置 → AI Provider”选择推理方式。本地模式使用 VoxCPM 模型，支持所选模型对应的声音设计和克隆；云端 API 模式使用 OpenAI 兼容的语音合成服务。</p>
+    <p>使用 API 模式时，仅准备应用的基础环境，填写服务地址、API Key、模型和音色即可，不需要安装本地语音模型或用本机 GPU 推理。它需要网络和可用的服务账号，服务费由服务商另行计收；当前应用 API 模式不支持声音克隆或自动转写。不要将 API Key 填入官网配置或发给他人。</p>
+
+    <h2>准备本地推理运行时</h2>
+    <p>首次激活启动时，应用会检测已有环境，并保存成功检测结果，后续正常启动复用该结果。环境异常时，可在“设置 → 运行环境管理”主动检测、安装或修复，仅补充缺失或不兼容的依赖。无需为了升级应用主动重装模型或 CUDA。</p>
+    <p>首次安装依赖可能需要联网，具体下载量与已有环境有关。请预留足够的硬盘空间，并等待安装完成。应用安装器、运行时、模型是三个不同部分。</p>
+
+    <h2>选择本地模型</h2>
+    <p>在“模型管理”选择已下载模型或导入本地模型目录；缺少模型时可手动下载。当前模型选择会保存，重启后恢复选择，不提前加载权重。声音设计使用支持该模式的 VoxCPM2。转写和降噪分别使用辅助模型，需要时再手动准备。</p>
+    <p>本地推理是否可运行取决于所选模型、可用显存与系统内存；请勿将网页上的采样率或界面示意理解为对所有硬件的性能保证。</p>
+
+    <h2>开始创作</h2>
+    <ul>
+      <li><strong>声音设计：</strong>输入目标文本与音色描述，探索新的声音。</li>
+      <li><strong>可控克隆：</strong>提供已获授权的参考音频，配合语气和风格指令生成。</li>
+      <li><strong>极致克隆：</strong>使用参考音频及对应文本构建声音提示，生成新的内容。</li>
+      <li><strong>批量生成：</strong>通过任务队列处理多段文本，使用音色库与历史记录管理素材；V1.0.3 会对相同参考音频自动复用降噪与编码特征缓存，显著提升连续与批量克隆速度。</li>
+    </ul>
+
+    <h2>本地显存与资源</h2>
+    <p>下载或选择模型不会预先把模型加载到显存。默认在任务执行时加载，队列完成后卸载。显存栏提供自动释放开关与手动释放入口，有任务时不会强制卸载。</p>
+    <p>可在设置中选择桌面流畅优先或生成速度优先。资源不足时会等待或提示；调度基于资源估算，不能保证任意负载下都不卡顿。</p>
+
+    <h2>音频管理</h2>
+    <p>生成结果写入历史记录，支持多选、批量删除和保存到文件夹。桌面应用下载音频时直接弹出保存窗口，取消不会改变原始音频。保存为音色时保留完整参考，音色库另提供最长 5 秒的试听音频。</p>
+
+    <h2>数据与卸载</h2>
+    <p>本地引擎在本机处理音频；使用第三方 API 时，请求将发送至你配置的服务。音频、模型、历史记录的保存位置可在应用设置中查看。</p>
+    <p>Windows“已安装的应用”提供卸载入口。卸载可能保留运行时、模型与用户数据，便于重新安装；需要彻底清理时，请先确认并备份自己的文件。</p>
+
+    <h2>声音使用边界</h2>
+    <p>请只克隆本人或已取得明确授权的声音，不用于冒充、欺诈或侵权。发布合成内容时请遵守适用要求并进行必要标识。</p>
+
+    <a class="button primary" href="index.html#download">前往下载 V1.0.3 →</a>
+  </main>
+
+  <footer class="footer container">
+    <span>© 2026 oVoice</span>
+    <nav aria-label="页脚导航">
+      <a href="index.html">返回首页</a>
+      <a href="privacy.html">隐私说明</a>
+      <a href="https://github.com/OpenBMB/VoxCPM" target="_blank" rel="noopener">VoxCPM <span aria-hidden="true">↗</span></a>
+    </nav>
+  </footer>
+</body>
+</html>

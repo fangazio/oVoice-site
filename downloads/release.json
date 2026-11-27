@@ -1,0 +1,12 @@
+{
+  "product": "oVoice",
+  "version": "1.0.3",
+  "platform": "windows-x64",
+  "file": "oVoice_1.0.3_x64-setup.exe",
+  "bytes": 1561005,
+  "sha256": "481a56c65d45d709040b4327fc7c9d31e5323b651985d63315c6907903143358",
+  "download": "downloads/oVoice_1.0.3_x64-setup.exe",
+  "includes_models": false,
+  "includes_local_runtime": false,
+  "activation_required": true
+}

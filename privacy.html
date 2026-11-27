@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#0c0e12">
+  <title>隐私说明 — oVoice</title>
+  <meta name="description" content="oVoice 官网与桌面应用的本地数据、第三方 API 和离线授权说明。">
+  <link rel="icon" href="assets/icon.png" type="image/png">
+  <link rel="stylesheet" href="assets/style.css?v=20261127b">
+</head>
+<body>
+  <header class="header">
+    <div class="container nav">
+      <a class="brand" href="index.html" aria-label="oVoice 首页">
+        <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>oVoice
+      </a>
+      <nav id="navigation" aria-label="主导航">
+        <a href="index.html#engines">功能</a>
+        <a href="guide.html">使用说明</a>
+        <a class="nav-download" href="index.html#download">下载</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="document">
+    <a class="back-link" href="index.html">← 返回 oVoice 官网</a>
+    <h1>隐私说明</h1>
+    <p>本说明区分静态官网、本地推理、第三方 API 和离线授权。更新日期：2026年11月27日。</p>
+
+    <h2>官网访问与下载</h2>
+    <p>本网站不设账号、支付或音频上传接口，不使用第三方统计脚本，也不设置营销 Cookie。你点击下载后，浏览器会向网站服务器请求安装包。</p>
+    <p>网站服务器和其运营者配置的网络服务可能保留常规访问日志，例如 IP、访问时间、浏览器信息和请求路径。具体日志保存与使用方式由实际网站运营者负责；这不等同于桌面应用上传音频。</p>
+
+    <h2>本地推理</h2>
+    <p>选择本地引擎时，参考录音与语音生成在你的电脑上处理。模型文件、生成音频、音色库和历史记录保存在本机。首次准备依赖、下载模型时会访问相应的软件或模型服务。</p>
+
+    <h2>第三方 API</h2>
+    <p>如果你主动配置并使用云端 API，请求会发送给你选择的服务商。请自行了解该服务的数据处理和隐私条款。官网对本地模式的描述不适用于第三方服务。</p>
+
+    <h2>离线激活</h2>
+    <p>应用使用有效的设备硬件标识生成机器码，用于单机授权。机器码是经过处理的摘要，界面不直接显示硬件序列号。设备识别和激活码验证均在本地执行，不连接授权服务器。</p>
+    <p>你向发行者提供机器码以获取激活码。发行者可能在签发台账中保存机器码、激活码、签发时间和必要的客户备注，用于人工签发与售后。不要向任何人提供发行者私钥或其保护密码。</p>
+
+    <h2>你可以采取的措施</h2>
+    <p>选择本地模式以在本机处理声音；妥善保管自己的录音和激活码；删除数据前先备份。关于购买、授权补发或具体运营主体的信息，请联系发行者：<a href="mailto:fangazio@hotmail.com">fangazio@hotmail.com</a>。</p>
+  </main>
+
+  <footer class="footer container">
+    <span>© 2026 oVoice</span>
+    <nav aria-label="页脚导航">
+      <a href="index.html">返回首页</a>
+      <a href="guide.html">使用说明</a>
+      <a href="https://github.com/OpenBMB/VoxCPM" target="_blank" rel="noopener">VoxCPM <span aria-hidden="true">↗</span></a>
+    </nav>
+  </footer>
+</body>
+</html>
